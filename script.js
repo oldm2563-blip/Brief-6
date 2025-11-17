@@ -19,11 +19,18 @@ add.addEventListener("click", ()=>{
     const pic = document.getElementById("pic");
     const number = document.getElementById("number");
     const employees = document.getElementById("employees");
+    const select = document.getElementById("selection");
 
-    
+    const thename = name.value.trim();
+    const themail = email.value.trim();
+    const num = number.value.trim();
+    const role = select.value.trim();
 
+    const newempl = document.createElement("div")
+    newempl.classList.add("employee");
+    newempl.innerHTML = `<h3>${thename} => ${role}</h3> <button class="edit">Edit</button></div>`
 
-
+    employees.appendChild(newempl);
 
     form.style.display = "none";
     background.style.display = "none";
