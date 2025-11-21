@@ -10,6 +10,14 @@
 <body>
 <div class="background" id="background"></div>
 
+<div id="zonning">
+    <h3>Select an employee</h3>
+    <select id="thezoner">
+        <option value="" selected >Select an employee</option>
+    </select>
+    <button class="quit" id="hidezonner">Close</button>
+</div>
+
 <div class="input" id="input">
     <h4>Name</h4>
     <input type="text" id="name">
@@ -18,7 +26,7 @@
     <h4>picture URL</h4>
     <input type="text" id="pic">
     <h4>Phone</h4>
-    <input type="text" id="number">
+    <input type="text" id="Phone">
     <h4>Role</h4>
     <select name="" id="selection">
         <option value="Manager">Manager</option>
@@ -35,32 +43,47 @@
     </div>
 </div>
 
-
-
 <div class="info" id="info"></div>
-
-
 
 <div class="fix">
     <div class="employe-container">
         <h1>Unasigned employees</h1>
         <button class="add-employee" id="addform"><i class="fa-solid fa-user-plus"></i></button>
         <section class="employees" id="employees">
-            <div class="employee"><h3>alicen walker => Manager</h3><button class="edit">Edit</button></div>
         </section>
     </div>
     <div class="zones">
         <h1>Zones</h1>
         <section class="rooms">
-            <div class="zone"><i class="fa-solid fa-handshake"><h3>Conference Room</h3>
-            </i>
-                <div class="employee"><h3>alicen walker => Manager</h3></div>
+            <div class="zone" data-zone="Conference Room"><i class="fa-solid fa-handshake"><h3>Conference Room</h3></i>
+            <button class="add-zone">+</button>
+            <div class="zone-employees"></div> 
             </div>
-            <div class="zone"><i class="fa-solid fa-bell-concierge"><h3>Reception</h3></i></div>
-            <div class="zone"><i class="fa-solid fa-server"><h3>Server Room</h3></i></div>
-            <div class="zone"><i class="fa-solid fa-lock"><h3>Security Room</h3></i></div>
-            <div class="zone"><i class="fa-solid fa-coffee"><h3>Staff Room</h3></i></div>
-            <div class="zone"><i class="fa-solid fa-archive"><h3>Archives</h3></i></div>
+            <div class="zone" data-zone="Reception">
+                <i class="fa-solid fa-bell-concierge"><h3>Reception</h3></i>
+                <button class="add-zone">+</button>
+                <div class="zone-employees"></div>
+            </div>
+            <div class="zone" data-zone="Server Room">
+                <i class="fa-solid fa-server"><h3>Server Room</h3></i>
+                <button class="add-zone">+</button>
+                <div class="zone-employees"></div>
+            </div>
+            <div class="zone" data-zone="Security Room">
+                <i class="fa-solid fa-lock"><h3>Security Room</h3></i>
+                <button class="add-zone">+</button>
+                <div class="zone-employees"></div>
+            </div>
+            <div class="zone" data-zone="Staff Room">
+                <i class="fa-solid fa-coffee"><h3>Staff Room</h3></i>
+                <button class="add-zone">+</button>
+                <div class="zone-employees"></div>
+            </div>
+            <div class="zone" data-zone="Archives">
+                <i class="fa-solid fa-archive"><h3>Archives</h3></i>
+                <button class="add-zone">+</button>
+                <div class="zone-employees"></div>
+            </div>
         </section>
     </div>
 </div>
