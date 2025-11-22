@@ -1,3 +1,4 @@
+let experiences = [];
 const btnofpower = document.getElementById("btnofpower");
 const addform = document.getElementById("addform");
 const form = document.getElementById("input");
@@ -70,6 +71,8 @@ add.addEventListener("click", () => {
                     <h3>${thename}</h3>
                     <h3>${role}</h3>
                 </div>`
+    newempl.experiences = [...experiences];
+    experiences = [];
     employees.appendChild(newempl);
     form.style.display = "none";
     background.style.display = "none";
@@ -98,6 +101,19 @@ add.addEventListener("click", () => {
         <h2>${num}</h2>
         <h1>Role :</h1>
         <h2>${role}</h2> 
+        <h1>Experience:</h1>
+        <div>
+        ${(newempl.experiences && newempl.experiences.length > 0)
+                ? newempl.experiences.map(exp => `
+            <div style="margin-bottom:10px;">
+                <h3>${exp.company}</h3>
+                <p>${exp.exptext}</p>
+                <p>${exp.start} → ${exp.end}</p>
+            </div>
+         `).join("")
+                : "<p>No experience added</p>"
+            }
+        </div>
         </div>
         `
         const quit = document.createElement("button")
@@ -184,7 +200,7 @@ btnsofpower.forEach(btn => {
                 selectedemp.appendChild(removeBtn);
                 selectedemp.dataset.zone = zoneName;
 
-                    zonning.style.display = "none";
+                zonning.style.display = "none";
                 background.style.display = "none";
             }
         })
@@ -207,3 +223,60 @@ document.getElementById("hidezonner").addEventListener("click", () => {
     zonning.style.display = "none";
     background.style.display = "none";
 })
+
+document.getElementById("exp").addEventListener("click", () => {
+    const newexp = document.createElement("div");
+    newexp.classList.add("experience");
+    newexp.innerHTML = `
+        <hr>
+        <h4>Company</h4>
+        <input type="text" class="company">
+        <h4>Experience</h4>
+        <input type="text" class="exptext">
+        <h4>Start Date</h4>
+        <input type="date" class="startdate">
+        <h4>End Date</h4>
+        <input type="date" class="enddate">
+        <button class="saveExp" style="margin-top:10px;">Add Experience</button>
+        <hr>
+    `;
+
+    form.appendChild(newexp);
+
+    cancel.addEventListener("click", () => {
+        experiences = [];
+        newexp.remove();
+    });
+
+    const saveBtn = newexp.querySelector(".saveExp");
+
+    saveBtn.addEventListener("click", () => {
+        const company = newexp.querySelector(".company").value.trim();
+        const exptext = newexp.querySelector(".exptext").value.trim();
+        const start = newexp.querySelector(".startdate").value;
+        const end = newexp.querySelector(".enddate").value;
+
+
+        if (!company || !exptext || !start || !end) {
+            alert("Please fill all experience fields");
+            return;
+        }
+
+        const s = new Date(start);
+        const e = new Date(end);
+
+        if (s > e) {
+            alert("Start date cannot be after end date");
+            return;
+        }
+
+
+        experiences.push({ company, exptext, start, end });
+
+
+        newexp.querySelector(".company").value = "";
+        newexp.querySelector(".exptext").value = "";
+        newexp.querySelector(".startdate").value = "";
+        newexp.querySelector(".enddate").value = "";
+    });
+});

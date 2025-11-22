@@ -5,7 +5,7 @@ body{
     display: flex;
     width: 100%;
     height: 100vh;
-    background-color: rgb(252, 247, 255);
+    background-color: rgb(241, 234, 248);
     align-items: center;
     overflow-x: hidden;
     flex-direction: column;
@@ -15,8 +15,9 @@ body{
 .fix{
     margin-left: 20px;
     display: grid;
-    grid-template-columns: 30% 67%;
-    gap: 10px;
+    grid-template-columns: 20% 67%;
+    justify-content: center;
+    gap: 50px;
 }
 
 .employe-containe{
@@ -25,9 +26,9 @@ body{
 }
 
 .employe-container,.zones{
-    background-color: white;
+    background-color: rgb(244, 235, 252);
     border-radius: 30px;
-    box-shadow: 3px 3px 20px 3px rgb(0, 0, 0, 0.3);
+    box-shadow: 1px 2px 2px 1px rgb(219, 186, 253);
 }
 .employees{
     margin-top: 10px;
@@ -38,19 +39,22 @@ body{
 }
 
 .add-employee{
-    background-color: rgb(0, 180, 69);
+    background-color: blueviolet;
     color: white;
     border: none;
     outline: none;
     cursor: pointer;
     width: 70px;
-    height: 25px;
-    border-radius: 5px;
+    height: 40px;
+    border-radius: 50px;
+    
 }
 
 
 .employee{
-    background-color: aliceblue;
+    background-color: rgb(136, 17, 210);
+    color: white;
+    border-radius: 20px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -59,6 +63,13 @@ body{
     align-items: center;
     height: 60px;
     padding: 10px 10px;
+}
+.employee:hover{
+    background-color: rgb(171, 91, 250);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #4741fb, #6a11cb);
+                    
 }
 
 .edit{
@@ -82,7 +93,17 @@ body{
     border-radius: 30px;
     height: 224px;
     width: 354px;
-    background-image: linear-gradient(to right, rgb(255, 220, 220), white);
+    background-image: linear-gradient(to right, #ddc7ff, rgb(232, 200, 254));
+    border: solid 1px rgb(130, 3, 126);
+    color: black;
+}
+
+.zone:hover {
+    background-image: linear-gradient(to right, rgb(218, 196, 255), white);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #4741fb, #6a11cb);
+
 }
 
 .background{
@@ -99,23 +120,25 @@ body{
 
 .input{
     display: none;
-    border: 2px solid black;
-    background-color: rgb(240, 240, 240);
+    border: 2px solid rgb(121, 0, 251);
+    background-color: rgb(241, 232, 255);
     transform: translate(-50%, -50%);
     position: fixed;
     z-index: 1000px;
     width: 350px;
     left: 50%;
     top: 50%;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 30px;
+    overflow-y: scroll;
+    height: 900px;
 }
 
 input{
     margin: 10px;
     width: 300px;
-    border: none;
-    background-color: rgb(255, 255, 255);
+    border: solid 1px rgb(121, 0, 251);
+    background-color: white;
     height: 30px;
     border-radius: 30px;
     padding-left: 10px;
@@ -124,7 +147,7 @@ input{
 select{
     margin: 10px;
     width: 300px;
-    border: none;
+    border: solid 1px rgb(121, 0, 251);
     background-color: rgb(255, 255, 255);
     height: 30px;
     border-radius: 30px;
@@ -132,13 +155,14 @@ select{
 }
 
 #add{
-    background: green;
+    background: rgb(40, 192, 2);
     border: none;
     color: white;
     cursor: pointer;
-    height: 20px;
-    width: 60px;
-    border-radius: 5px;
+    height: 40px;
+    width: 70px;
+    border-radius: 50px;
+    font-weight: 500;
 }
 
 #cancel{
@@ -146,9 +170,10 @@ select{
     border: none;
     color: white;
     cursor: pointer;
-    height: 20px;
-    width: 60px;
-    border-radius: 5px;
+    height: 40px;
+    width: 70px;
+    border-radius: 50px;
+    font-weight: 500;
 }
 
 .btnofpower{
@@ -158,24 +183,26 @@ select{
 }
 
 .info{
-    display: hidden;
     display: none;
-    border: 2px solid black;
-    background-color: rgb(240, 240, 240);
+    text-align: center;
+    border: solid 1px rgb(121, 0, 251);
+    background-color: rgb(241, 232, 255);
     transform: translate(-50%, -50%);
     position: fixed;
     z-index: 1000px;
-    width: 350px;
+    width: 400px;
     left: 50%;
     top: 50%;
     padding: 20px;
     border-radius: 10px;
+    overflow-y: scroll;
+    height: 800px;
 }
 
 .theinfo{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 5px;
     flex-wrap: wrap;
 }
 
@@ -184,12 +211,14 @@ select{
 }
 
 .quit{
-    background: red;
+    background: rgb(255, 0, 0);
     border: none;
     color: white;
     cursor: pointer;
-    height: 20px;
-    width: 60px;
+    height: 40px;
+    width: 70px;
+    border-radius: 50px;
+    font-weight: 500;
 }
 
 h2{
@@ -198,9 +227,8 @@ h2{
 
 #zonning {
     display: none;
-    display: none;
-    border: 2px solid black;
-    background-color: rgb(240, 240, 240);
+    border: solid 1px rgb(121, 0, 251);
+    background-color: rgb(241, 232, 255);
     transform: translate(-50%, -50%);
     position: fixed;
     z-index: 1000px;
@@ -208,7 +236,7 @@ h2{
     left: 50%;
     top: 50%;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
 .zone-employees{
@@ -228,21 +256,26 @@ h2{
     width: 0px;
 }
 
-.employee:hover{
-    background-color: antiquewhite;
+.input::-webkit-scrollbar{
+    width: 0px;
 }
+.info::-webkit-scrollbar{
+    width: 0px;
+}
+
 
 .logo{
     width: 250px;
 }
 
 .add-zone{
-    background-color: rgb(0, 180, 69);
+    background-color: blueviolet;
     color: white;
     border: none;
     cursor: pointer;
-    padding: 2px 20px;
-    border-radius: 5px;
+    padding: 7px 20px;
+    border-radius: 50px;
+    margin: 20px;
 }
 
 @media(max-width : 769px){
